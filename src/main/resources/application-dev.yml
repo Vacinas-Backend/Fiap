@@ -1,0 +1,17 @@
+info:
+  app:
+    name: Vacinas
+    description: Vacinas
+
+server:
+  port: 80
+
+scheduled:
+  cron: 0 0 * * * *
+
+spring:
+  datasource:
+    driver: org.postgresql.postgresql
+    url: jdbc:postgresql://ec2-34-193-113-223.compute-1.amazonaws.com:5432/dc57g6j7gec31j?stringtype=unspecified
+    username: mgcoqqsdxqosxj
+    password: 8f03ff2a7f8715bb7fdf25b30d1fe7512659c2e05bf3dc96663ba0bdfd843a4c
