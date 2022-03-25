@@ -1,14 +1,19 @@
 package com.br.fiap.vacinas.controller;
 
-import com.br.fiap.vacinas.model.Vacinas;
-import com.br.fiap.vacinas.repository.VacinaRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.br.fiap.vacinas.model.Vacinas;
+import com.br.fiap.vacinas.repository.VacinaRepository;
 
 @RestController
 public class VacinaController {
@@ -20,22 +25,33 @@ public class VacinaController {
     String index() {
         return "Vacina - Backend";
     }
-
+    
+    @CrossOrigin
     @RequestMapping("/vacinas")
     public List<Vacinas> vacinas(){
         return vacinaRepository.findAll();
     }
-
-    @PostMapping
+    
+    
+    @CrossOrigin
+    @PostMapping(path = "/vacinas")
     public void save(@RequestBody Vacinas vacinas) {
+    	System.out.println("opa" + vacinas);
         vacinaRepository.save(vacinas);
     }
-
+    
+    
     @CrossOrigin
-    @RequestMapping(path = "/send-email")
-    String email() {
+    @GetMapping("/send-email/email")
+    @ResponseBody
+    public String email(@RequestParam String email) {
+    	System.out.println(email);
     	Mensageria mg = new Mensageria();
-        return mg.queuevacinas(null);
+    	
+    	
+    	 return mg.queuevacinas(email); 
     }
 
 }
+
+

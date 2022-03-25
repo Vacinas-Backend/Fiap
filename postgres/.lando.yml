@@ -1,9 +1,0 @@
-name: vacinas-fiap
-services:
-  database:
-    type: postgres:13
-    portforward: 5435
-    creds:
-      database: postgres
-      user: postgres
-      password: 
