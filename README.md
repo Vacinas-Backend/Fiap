@@ -2,7 +2,7 @@
 
 Rota para mensageria - FRONT END
 
-http://localhost:8090/send-email/email/?email=  inserir email do usuãrio 
+http://localhost:8090/send-email/email/?email=  inserir variavel com o email do usuãrio 
 
 
 ex: 
