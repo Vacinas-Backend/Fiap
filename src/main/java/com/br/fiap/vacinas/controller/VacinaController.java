@@ -1,6 +1,7 @@
 package com.br.fiap.vacinas.controller;
 
 import java.util.List;
+import org.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -42,14 +43,20 @@ public class VacinaController {
     
     
     @CrossOrigin
-    @GetMapping("/send-email/email")
+    @PostMapping(path = "/send-email/email")
     @ResponseBody
     public String email(@RequestParam String email) {
-    	System.out.println(email);
     	Mensageria mg = new Mensageria();
     	
     	
-    	 return mg.queuevacinas(email); 
+    	 return mg.queuevacinas(email);
+    }
+
+    @CrossOrigin
+    @PostMapping(path = "/cpf")
+    public String validateCPF(@RequestBody String cpf) {
+        JSONObject cpfJson = new JSONObject(cpf);
+        return com.br.fiap.vacinas.helper.Helper.executePost("http://localhost:8091/validar", cpfJson);
     }
 
 }
