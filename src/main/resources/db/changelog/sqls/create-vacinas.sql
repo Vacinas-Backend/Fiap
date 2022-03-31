@@ -24,4 +24,4 @@ CREATE SEQUENCE IF NOT EXISTS public.vacinas_seq
     START 1
     CACHE 1;
 
-ALTER TABLE public.vacinas_seq OWNER TO postgres;
+-- ALTER TABLE public.vacinas_seq OWNER TO postgres;
