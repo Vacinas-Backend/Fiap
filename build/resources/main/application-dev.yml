@@ -4,7 +4,7 @@ info:
     description: Vacinas
 
 server:
-  port: 8090
+  port: ${PORT:8090}
 
 scheduled:
   cron: 0 0 * * * *

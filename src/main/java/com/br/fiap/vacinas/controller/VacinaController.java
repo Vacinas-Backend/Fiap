@@ -56,7 +56,7 @@ public class VacinaController {
     @PostMapping(path = "/cpf")
     public String validateCPF(@RequestBody String cpf) {
         JSONObject cpfJson = new JSONObject(cpf);
-        return com.br.fiap.vacinas.helper.Helper.executePost("http://localhost:8091/validar", cpfJson);
+        return com.br.fiap.vacinas.helper.Helper.executePost("https://vacinas-cpf.herokuapp.com/validar", cpfJson);
     }
 
 }
